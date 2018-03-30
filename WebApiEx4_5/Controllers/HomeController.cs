@@ -35,6 +35,10 @@ namespace WebApiEx4_5.Controllers
                 var list = service.Files.List().Execute();
                 ViewBag.Message = "FILE COUNT IS: " + list.Items.Count();
             }
+            else
+            {
+                return new RedirectResult(result.RedirectUri);
+            }
             return View();
         }
 
@@ -79,8 +83,7 @@ namespace WebApiEx4_5.Controllers
             }
             else
             {
-                return View();
-                //return new RedirectResult(result.RedirectUri);
+                return new RedirectResult(result.RedirectUri);
             }
         }
 
